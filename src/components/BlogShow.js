@@ -5,7 +5,6 @@ import DateFormatter from './DateFormatter';
 import RelatedBlogs from './RelatedBlogs';
 import UserInfo from './UserInfo';
 
-const { publicRuntimeConfig } = getConfig();
 
 export default class BlogShow extends Component {
   render() {
@@ -16,7 +15,7 @@ export default class BlogShow extends Component {
       <Fragment>
         <Head>
           <title>
-            {title} | {publicRuntimeConfig.pageTitle}
+            {title} | publicRuntimeConfig.pageTitle
           </title>
           <meta name="description" content={intro} />
         </Head>

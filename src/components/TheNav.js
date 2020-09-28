@@ -4,7 +4,6 @@ import Router from 'next/router';
 import getConfig from 'next/config';
 import { auth } from '../lib/db';
 
-const { publicRuntimeConfig } = getConfig();
 
 export default class TheNav extends Component {
   isMounted = false;
@@ -18,7 +17,7 @@ export default class TheNav extends Component {
 
   signOut = async () => {
     await auth.signOut();
-    localStorage.removeItem(publicRuntimeConfig.localStorageUserId);
+    localStorage.removeItem('publicRuntimeConfig.localStorageUserId');
     if (this.isMounted) {
       this.setState({
         signedIn: false,

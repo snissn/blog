@@ -5,7 +5,6 @@ import getConfig from 'next/config';
 import { firestore, auth } from '../../lib/db';
 import BlogCreate from '../../components/BlogCreate';
 
-const { publicRuntimeConfig } = getConfig();
 
 export default class newBlog extends Component {
   isMounted = false;
@@ -50,7 +49,7 @@ export default class newBlog extends Component {
     return (
       <div>
         <Head>
-          <title>New blog | {publicRuntimeConfig.pageTitle}</title>
+          <title>New blog | publicRuntimeConfig.pageTitle</title>
         </Head>
         <BlogCreate addBlog={this.addBlog} />
       </div>

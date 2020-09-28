@@ -6,9 +6,8 @@ import TheHead from './TheHead';
 import TheNav from './TheNav';
 import TheFooter from './TheFooter';
 
-const { publicRuntimeConfig } = getConfig();
 
-NProgress.configure({ showSpinner: publicRuntimeConfig.NProgressShowSpinner });
+NProgress.configure({ showSpinner: false});
 
 Router.onRouteChangeStart = () => {
   // console.log('onRouteChnageStart triggered');

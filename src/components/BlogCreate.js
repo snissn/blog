@@ -8,7 +8,6 @@ import { auth } from '../lib/db';
 import { fetchDocumentFromCollection, isEmpty } from '../lib/utility';
 import InvalidUserMessage from './InvalidUserMessage';
 
-const { publicRuntimeConfig } = getConfig();
 
 const ValidationInputIcon = (props) => {
   if (props.validated) {
@@ -114,7 +113,7 @@ export default class BlogCreate extends Component {
           intro: this.state.intro,
           content: this.state.content,
           createdAt: moment().unix(),
-          userId: localStorage.getItem(publicRuntimeConfig.localStorageUserId),
+          userId: localStorage.getItem('publicRuntimeConfig.localStorageUserId'),
         };
 
         this.props.addBlog(newBlog);
@@ -129,7 +128,7 @@ export default class BlogCreate extends Component {
   componentDidMount() {
     this.isMounted = true;
     const userIdFromLocalStorage = localStorage.getItem(
-      publicRuntimeConfig.localStorageUserId,
+      'publicRuntimeConfig.localStorageUserId',
     );
 
     fetchDocumentFromCollection({

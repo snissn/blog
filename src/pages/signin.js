@@ -8,7 +8,6 @@ import {
   isEmpty,
 } from '../lib/utility';
 
-const { publicRuntimeConfig } = getConfig();
 
 export default class signin extends Component {
   isMounted = false;
@@ -62,7 +61,7 @@ export default class signin extends Component {
           .add(authUser)
           .then((createdUser) => {
             localStorage.setItem(
-              publicRuntimeConfig.localStorageUserId,
+              'publicRuntimeConfig.localStorageUserId',
               createdUser.id,
             );
             Router.push('/');
@@ -70,7 +69,7 @@ export default class signin extends Component {
       } else {
         // if yes, go to home page
         localStorage.setItem(
-          publicRuntimeConfig.localStorageUserId,
+          'publicRuntimeConfig.localStorageUserId',
           foundUser.id,
         );
         Router.push('/');
@@ -86,7 +85,7 @@ export default class signin extends Component {
     return (
       <Fragment>
         <Head>
-          <title>Sign in | {publicRuntimeConfig.pageTitle}</title>
+          <title>Sign in | publicRuntimeConfig.pageTitle</title>
           <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"

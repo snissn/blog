@@ -5,7 +5,6 @@ import Head from 'next/head';
 import getConfig from 'next/config';
 import DateFormatter from './DateFormatter';
 
-const { publicRuntimeConfig } = getConfig();
 
 const Confirmation = (props) => {
   if (!props.show) {
@@ -50,7 +49,7 @@ export default class BlogEdit extends Component {
       intro: this.state.intro,
       content: this.state.content,
       createdAt: moment().unix(),
-      userId: localStorage.getItem(publicRuntimeConfig.localStorageUserId),
+      userId: localStorage.getItem('publicRuntimeConfig.localStorageUserId'),
     };
 
     this.props.updateBlog(blog);
@@ -86,7 +85,7 @@ export default class BlogEdit extends Component {
       <Fragment>
         <Head>
           <title>
-            Editing {title} | {publicRuntimeConfig.pageTitle}
+            Editing {title} | publicRuntimeConfig.pageTitle
           </title>
         </Head>
 
